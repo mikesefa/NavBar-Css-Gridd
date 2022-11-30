@@ -1,0 +1,394 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #EAEDED;
+    font-family: Arial, sans-serif;
+
+}
+a{
+    text-decoration: none;
+}
+.contenedor{
+    margin: auto;
+    width: 95%;
+    max-width: 1200px;
+}
+
+main article { /*simular hoja en blanco*/
+    background: #FFF;
+    margin: 20px 0 ;
+    padding:20px ;
+    height: 1200px;
+}
+
+/* estilos al nav */
+
+.menu{
+    background: #232F3E;
+    padding: 5px 0;
+    margin-bottom: 20px;
+}
+
+.menu .contenedores-botones-menu{
+    /* display: flex; */
+    display: none;
+    justify-content: space-between;
+}
+
+.menu .contenedores-botones-menu button{
+    font-size: 20px;
+    background: none;
+    color: #FFF;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display:inline-block;
+}
+
+.menu .contenedores-botones-menu button:hover{
+    border: 1px solid rgba(255, 255, 255, .4);
+}
+
+.menu .contenedores-botones-menu .btn-menu-cerrar {
+    display: none;
+}
+
+.menu .contenedores-botones-menu .btn-menu-cerrar .activo{
+    display: inline-block;
+}
+
+.menu .contenedor-enlaces-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu .btn-departamentos{
+    color: #FFF;
+    padding: 7px;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-end ;
+    border: 1px solid transparent;
+    font-size: 12px ;
+    cursor: default;
+}
+
+.menu .btn-departamentos i{
+    position: relative;
+    margin-left: 20px;
+    bottom: 3px;
+}
+
+.menu .btn-departamentos:hover{
+    border: 1px solid rgba(255, 255, 255, .4);
+}
+
+.menu .btn-departamentos span{/* editar palabra departamentos */
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu .contenedor-enlaces-nav .enlaces a{/* editar enlaces */
+    color:#ccc;
+    border: 1px solid transparent;
+    padding: 7px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.menu .contenedor-enlaces-nav .enlaces a:hover{
+    border:1px solid rgba(255, 255, 255, .4);
+
+}
+
+/* estilos para Grid de categorias */
+
+.contenedor-grid{
+    position: relative;
+}
+.grid{/* editar grid ventana emergente */
+    width: 100%;  
+    position: absolute;
+    top: 5px;
+    z-index: 1000;
+    display: none;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "categorias subcategorias subcategorias subcategorias";
+}
+
+.grid.activo{
+    display: grid;
+}
+.grid::before {/* lego del grid agregar flechita hacia abajo */
+    content: "";
+    display: block;
+    background: transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #FFF;
+    position: absolute;
+    top: -5px;
+    left: 65px;
+}
+/* daar estilos a hijos directos no a subhijos de los hjos */
+
+.grid > div {/* editar divs internos */
+    background: white;
+    box-shadow: 0px 3px 6px rgba(0,0,0, 0.10);
+}
+/* -----------categorias------------ */
+.grid .btn-regresar { /* ocultar boton regresar y dar estilos */
+    background: #232F3E;
+    font-size: 16px;
+    color: #FFF;
+    border: none;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    display: none;
+    border-radius: 3px;
+}
+.grid .btn-regresar h3{
+    margin-left:15px ;
+}
+
+.grid .categoria {
+    grid-area: categorias;
+    padding-top: 10px;
+    min-height: 300px;
+}
+
+.grid .categoria .subtitulo{
+    display: none   ;
+}
+
+.grid .categoria  h3{
+    margin-left: 20px;
+}
+
+.grid .categoria a{/* ordenar enlaces en flex */
+    color: black;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.grid .categoria a i {
+   display: none;   /* ocultar flechita */
+}
+
+.grid .categoria a:hover{ /* categorias editadas con hover*/
+    color: #E47911;
+    font-weight: bold;
+}
+
+.grid .categoria a:hover i{
+    display: inline-block;  /* mostrar flechita */
+    margin-top:2px;
+}
+
+/* -----------subcategorias */
+
+.grid .contenedor-subcategoria{
+    grid-area: subcategorias;
+}
+
+.grid .subcategoria{
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+
+.grid .subcategoria.activo{
+    display: grid;
+}
+
+.grid .subcategoria img{
+     width: 100%;  /*editar imagenes de subcategorias */
+     vertical-align: top;
+     object-fit: cover;
+     height: 100%;
+}
+/* editar contenedor de los enlaces de las subcategorias */
+.grid .enlace-subcategoria{
+    max-height: 300px;
+    padding-top: 10px;
+    height: 100%;
+    overflow: auto;
+}
+.grid .enlace-subcategoria a{
+    color: #000;
+    display: block;
+    font-size: 14px;
+    padding: 10px 20px;
+
+}
+
+.grid .enlace-subcategoria a:hover{
+    color: #E47911;
+}
+
+.grid .subtitulo{
+    font-size: 18px;
+    font-weight: normal;
+    color: #E47911;
+     padding: 10px 20px;
+}
+
+.grid .banner-subcategoria a{
+    display: block;
+    height: 100%;
+} 
+
+/*editar galeria de imagenes subcategorias */
+ .grid .galeria-subcategoria{ 
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+}
+/*editar galeria en cuatro cuadrantes */
+.grid .galeria-subcategoria a{
+    width: 50%;
+    height: 50%;
+    border: .5px solid rgba(0, 0, 0, .2);
+}
+
+/* -----------media queris---------- */
+
+@media screen and (max-width:1000px){
+    .menu .contenedor-enlaces-nav{
+        padding: 0 10px ;
+    }
+    .menu .contenedor{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:800px){
+    .menu .contenedor{
+        width: 90%;
+    }
+    .menu .contenedores-botones-menu{
+        display: flex;
+    }
+    .menu .contenedor-enlaces-nav {
+        padding: 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: fixed;
+        left: 0;
+        background: #232F3E;
+        height: 80vh;
+        width: 75%;
+        z-index: 2000;
+        transition: .3s ease all;
+        transform: translateX(-100%);
+
+
+    }
+    .menu .contenedor-enlaces-nav.activar{
+        transform: translateX(0%);
+    }
+    .menu .btn-departamentos{
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+    .menu .btn-departamentos i{
+        position: static;
+        margin-left: 20px;
+        transform: rotate(-90deg);
+    }
+
+    .menu .enlaces{
+        width: 100%;
+    }
+    .menu  .enlaces a{
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+    }
+    .grid{
+        display: grid;
+        transition: .3s ease all;
+        transform: translateX(-100%);
+        z-index: 3000;
+        width: 80%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+    grid-template-areas: "categorias categorias categorias categorias";
+    }
+    .grid.activo{
+        transform: translateX(0%);
+    }
+    .grid::before{
+        display: none;
+    }
+    .grid .btn-regresar {
+		display: inline-block;
+	}
+    .grid .contenedor-subcategorias {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		transition: .3s ease all;
+		transform: translateX(-100%);
+		overflow: auto;
+	}
+    .grid .contenedor-subcategorias.activo {
+		transform: translateX(0%);
+	}
+
+	.grid .contenedor-subcategorias .subcategoria {
+		grid-template-columns: 1fr;
+	}
+    .grid .contenedor-subcategorias {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		transition: .3s ease all;
+		transform: translateX(-100%);
+
+		overflow: auto;}
+
+        .grid .contenedor-subcategorias .activo {
+            transform: translateX(0%);
+        }
+    
+        .grid .contenedor-subcategorias .subcategoria {
+            grid-template-columns: 1fr;
+        }
+    
+        .grid .contenedor-subcategorias .banner-subcategoria {
+            width: 100%;
+            min-height: 250px;
+            max-height: 350px;
+        }
+    
+        .grid .enlaces-subcategoria {
+            min-height: 50vh;
+            overflow: auto;
+        }
+    
+        .grid .contenedor-subcategorias .galeria-subcategoria a {
+            width: 25%;
+            height: 100%;
+        }
+
+    }
+
